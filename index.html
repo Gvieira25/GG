@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Boa Viagem Minha Preta</title>
+
+<!-- Fonte romântica do Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+<style>
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
+  body {
+    background-color: #a4a4b8;
+    color: #111;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .carrossel-container {
+    position: relative;
+    width: 320px;
+    height: 570px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 0 20px #301ba8;
+    background-color: #000;
+  }
+
+  .carrossel {
+    display: flex;
+    transition: transform 1s ease-in-out;
+  }
+
+  .carrossel img {
+    width: 320px;
+    height: 570px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .indicadores {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 6px;
+  }
+
+  .indicador {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #eee4e4;
+    transition: background-color 0.3s;
+  }
+
+  .indicador.ativo {
+    background-color: #301ba8;
+  }
+
+  .contador {
+    margin-top: 20px;
+    background-color: #ebe2e2;
+    border: 2px solid #301ba8;
+    box-shadow: 0 0 12px rgba(48, 27, 168, 0.4);
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: #301ba8;
+  }
+
+  .contador-label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #301ba8;
+    margin-bottom: 5px;
+  }
+
+  .contador-tempo {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  .texto-romantico {
+    margin-top: 20px;
+    max-width: 340px;
+    color: #111;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    text-align: justify;
+  }
+
+  .qr-container {
+    margin-top: 20px;
+    text-align: center;
+    background-color: #fff;
+    padding: 15px 20px;
+    border: 2px solid #301ba8;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(48, 27, 168, 0.3);
+    max-width: 320px;
+  }
+
+  .qr-titulo {
+    font-size: 1.1rem;
+    color: #301ba8;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .qr-img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 360px) {
+    .carrossel-container {
+      width: 90vw;
+      height: calc(90vw * 1.78);
+    }
+
+    .carrossel img {
+      width: 90vw;
+      height: calc(90vw * 1.78);
+    }
+
+    .texto-romantico, .contador, .qr-container {
+      max-width: 90vw;
+      font-size: 1rem;
+    }
+
+    .contador-label {
+      font-size: 1.1rem;
+    }
+
+    .contador-tempo {
+      font-size: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Carrossel -->
+<div class="carrossel-container">
+  <div class="carrossel" id="carrossel">
+    <img src="imagem/Foto1.jpg" alt="Foto 1" />
+    <img src="imagem/foto2.jpg" alt="Foto 2" />
+    <img src="imagem/foto3.jpg" alt="Foto 3" />
+    <img src="imagem/foto4.jpg" alt="Foto 4" />
+    <img src="imagem/foto5.jpg" alt="Foto 5" />
+    <img src="imagem/foto6.jpg" alt="Foto 6" />
+    <img src="imagem/foto7.jpg" alt="Foto 7" />
+  </div>
+</div>
+
+<!-- Indicadores -->
+<div class="indicadores" id="indicadores">
+  <div class="indicador ativo"></div>
+  <div class="indicador"></div>
+  <div class="indicador"></div>
+  <div class="indicador"></div>
+  <div class="indicador"></div>
+  <div class="indicador"></div>
+  <div class="indicador"></div>
+</div>
+
+<!-- Contador -->
+<div class="contador">
+  <div class="contador-label">Te amo há</div>
+  <div class="contador-tempo" id="contador">0 dias 0h 0m 0s</div>
+</div>
+
+<!-- QR Code -->
+<div class="qr-container">
+  <p class="qr-titulo">Nossa música 🥰💿</p>
+  <a href="https://open.spotify.com/track/7cyt6I4ZpT2tFES6GEg7fH" target="_blank">
+    <img src="imagem/qrcode-swag.png" alt="QR Code Spotify - Swag" class="qr-img">
+  </a>
+  
+  <!-- Player de música -->
+  <audio autoplay loop controls style="margin-top: 10px; width: 100%;">
+    <source src="swag.mp3" type="audio/mpeg" />
+    Seu navegador não suporta o áudio.
+  </audio>
+</div>
+
+<!-- Texto -->
+<div class="texto-romantico" id="textoRomantico">
+Amor,  
+
+Olha só... hoje faz 24 dias que a gente se conheceu (mas quem tá contando, né? 👀), e parece que já vivi uns 3 filmes com você – todos comédia romântica, com direito a trilha sonora brega e cena pós-crédito com a gente rindo à toa.  
+
+E agora você tá indo realizar um dos seus maiores sonhos: estudar inglês em NY! 🇺🇸 Eu tô dividindo meu coração entre duas emoções:  
+
+Uma alegria IMENSA por ver você indo viver algo tão você.  
+
+E uma saudade antecipada desgraçada, porque ficar 3 semanas sem seu cheiro, seu beijo, seus surtos e suas risadas... é tipo viver sem wi-fi no meio do mato.  
+
+Mas, mesmo com o coração apertado, tô explodindo de orgulho! Ver você indo atrás do seu sonho me faz amar você ainda mais (e olha que isso parecia impossível). Eu vou tá aqui, morrendo de saudade, sim... mas também sonhando com o que a gente vai viver quando você voltar: nossa viagem pra Bariloche, aquele chalé que já é meio nosso sem nunca termos ido, nossas idas na Broto pra comer pizza e você pedir seu drink de vanilla com aquele sorrisinho de quem tá feliz da vida, nossas saídas em que a gente inventa o roteiro no meio do caminho e topa tudo no estilo “vambora e vê no que dá”, e os planos que não param de nascer quando olho pra você. Porque, a verdade é que a gente tem muito pra viver, muita coisa pra descobrir e um mundão inteiro pra desbloquear do jeitinho que a gente quer. - no nosso ritmo, com nosso jeito leve, doido e cheio de amor.  
+
+E ó, aproveita cada segundinho aí, se joga nas experiências e fica bastante fluente pra me ensinar mais também, tá? Kkkkk. Que aí, quando a gente viajar juntos, vamos tá desenrolando muito. 😎  
+
+Vai, amor. Vai conquistar NY como se fosse seu quintal. Mas volta, viu? Porque aqui tem alguém que te ama pra caramba e vai tá te esperando de coração cheio.  
+
+Te amo muito, minha preta. ❤  
+
+Com saudade antecipada e amor eterno,  
+
+teu homem.
+</div>
+
+<!-- Script -->
+<script>
+  const carrossel = document.getElementById('carrossel');
+  const indicadores = document.querySelectorAll('.indicador');
+  const totalFotos = 7;
+  const larguraFoto = 320;
+  let indiceAtual = 0;
+
+  function avancarCarrossel() {
+    indiceAtual = (indiceAtual + 1) % totalFotos;
+    carrossel.style.transform = `translateX(${-indiceAtual * larguraFoto}px)`;
+    atualizarIndicadores();
+  }
+
+  function atualizarIndicadores() {
+    indicadores.forEach((el, i) => {
+      el.classList.toggle('ativo', i === indiceAtual);
+    });
+  }
+
+  setInterval(avancarCarrossel, 2000);
+
+  // Contador
+  const contador = document.getElementById('contador');
+  const dataInicio = new Date(2025, 6, 5, 14, 30, 0); // 05/07/2025 14:30
+
+  function atualizarContador() {
+    const agora = new Date();
+    let diff = agora - dataInicio;
+
+    if (diff < 0) {
+      contador.textContent = "A data de início ainda não chegou!";
+      return;
+    }
+
+    const segs = Math.floor(diff / 1000) % 60;
+    const mins = Math.floor(diff / (1000 * 60)) % 60;
+    const horas = Math.floor(diff / (1000 * 60 * 60)) % 24;
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    contador.textContent = `${dias} dias ${horas}h ${mins}m ${segs}s`;
+  }
+
+  atualizarContador();
+  setInterval(atualizarContador, 1000);
+</script>
+
+</body>
+</html>
